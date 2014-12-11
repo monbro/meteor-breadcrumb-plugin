@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   api.use([
     'templating',
     'ui',
-    "iron:core",
+    "iron:core@1.0.0",
   ], "client");
 
   api.export('Breadcrumb', ['client', 'server']);
@@ -21,5 +21,5 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('monbro:iron-router-breadcrumb');
-  api.addFiles('monbro:iron-router-breadcrumb-tests.js');
+  api.addFiles('lib/breadcrumb-tests.js');
 });
