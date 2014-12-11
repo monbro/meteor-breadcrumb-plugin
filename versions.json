@@ -29,7 +29,31 @@
       "1.0.1"
     ],
     [
+      "iron:controller",
+      "1.0.0"
+    ],
+    [
       "iron:core",
+      "1.0.3"
+    ],
+    [
+      "iron:dynamic-template",
+      "1.0.3"
+    ],
+    [
+      "iron:layout",
+      "1.0.3"
+    ],
+    [
+      "iron:location",
+      "1.0.3"
+    ],
+    [
+      "iron:middleware-stack",
+      "1.0.0"
+    ],
+    [
+      "iron:url",
       "1.0.3"
     ],
     [
@@ -46,7 +70,7 @@
     ],
     [
       "minimongo",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "observe-sequence",
@@ -59,6 +83,10 @@
     [
       "random",
       "1.0.1"
+    ],
+    [
+      "reactive-dict",
+      "1.0.4"
     ],
     [
       "reactive-var",
