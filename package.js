@@ -39,6 +39,7 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
+  api.use('iron:router');
   api.use('monbro:iron-router-breadcrumb');
   api.addFiles('lib/breadcrumb-tests.js');
 });
