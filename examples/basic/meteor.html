@@ -1,0 +1,69 @@
+<head>
+  <title>basic</title>
+</head>
+
+<body>
+</body>
+
+<template name="dashboard">
+  {{> Nav}}
+
+  <h1>Dashboard</h1>
+
+  <p>
+    Welcome {{name}}!
+  </p>
+</template>
+
+<template name="analytics">
+  {{> Nav}}
+
+  <h1>Analytics Overview Title here</h1>
+</template>
+
+<template name="analyticsBooks">
+  {{> Nav}}
+
+  <h1>Analytics Books Title here</h1>
+</template>
+
+<template name="tags">
+  {{> Nav}}
+
+  <h1>Taglist Page</h1>
+</template>
+
+<template name="tagDetail">
+  {{> Nav}}
+
+  <h1>Detail Tagpage about {{_name}}</h1>
+</template>
+
+<template name="Nav">
+    <p>
+      {{> breadcrumb}}
+    </p>
+  <ul>
+    <li>
+      <a href="/">Dashboard</a>
+    </li>
+    <li>
+      <a href="/analytics">Analytics</a>
+    </li>
+    <li>
+      <a href="/analytics/books">Analytics Books</a>
+    </li>
+    <li>
+      <a href="/tags">Taglist</a>
+    </li>
+    <li>
+      <a href="/tag/banana">Tag Banana</a>
+    </li>
+    <li>
+      <a href="/tag/apple">Tag Apple</a>
+    </li>
+        <li>
+      <a href="/tag/blueberry-orange">Tag Blueberry Orange</a>
+    </li>
+  </ul>
+</template>

@@ -72,14 +72,24 @@ Router.route('/post/:_name', {
 
 ## Example custom template for navigation
 
-### Please note, that you dont have to use a custom template with the name `breadcrumb`, you can use the existing one out of the box by simply using `{{> breadcrumb}}` anywhere in your own templates.
+### Please note, that you dont have to use a custom template with the name `breadcrumb`, you can use the existing one out of the box by simply using `{{> breadcrumb}}` to include the preexisting template (which looks exact like the following example) anywhere in your own templates.
 
 ```
 <template name="breadcrumb">
-    <ol class="myCustomBreadcrumb">
+    <ol class="breadcrumb">
         {{#each Breadcrumb}}
             <li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>
         {{/each}}
     </ol>
 </template>
+```
+
+## Example access of the breadcrumb in Javascript
+
+```
+if (Meteor.is_client) {
+  Template.analytics.rendered = function(){
+    console.log(Breadcrumb.getAll()); // you can access the breadcrumb objects in a template helper as well
+  }
+}
 ```
