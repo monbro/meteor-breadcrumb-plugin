@@ -3,7 +3,7 @@ meteor-breadcrumb-plugin
 
 This package will provide a easy way to add a breadcrumb with enough flexibility to your project.
 
-# Demo: http://meteor-breadcrumb-plugin-basic-example.meteor.com
+# Try the [demo](http://meteor-breadcrumb-plugin-basic-example.meteor.com) which can be found on [github](https://github.com/monbro/meteor-breadcrumb-plugin/tree/master/examples/basic)
 
 # Dependencies
 
