@@ -18,7 +18,6 @@ function configurePackage(api) {
       'templating@1.0.5',
       'ui',
       'meteor'
-      // 'iron:core@1.0.0'
     ]
   );
 
