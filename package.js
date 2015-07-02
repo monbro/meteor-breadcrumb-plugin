@@ -1,7 +1,7 @@
 Package.describe({
   name: 'meteorblackbelt:iron-router-breadcrumb',
   summary: 'This package will provide a easy way to add a breadcrumb to Iron.Router with enough flexibility.',
-  version: '1.0.8',
+  version: '1.0.9',
   git: 'https://github.com/meteorblackbelt/meteor-breadcrumb-plugin/'
 });
 
@@ -16,6 +16,7 @@ function configurePackage(api) {
     [
       'blaze@2.0.0',
       'templating@1.0.5',
+      'underscore',
       'ui',
       'meteor'
     ]
