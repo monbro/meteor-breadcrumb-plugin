@@ -21,7 +21,8 @@ Router.route('/analytics', {
   name: 'analytics',
   parent: 'dashboard',
   template: 'analytics',
-  title: 'Analytics'
+  title: 'Analytics',
+  showLink: false
 });
 
 Router.route('/analytics/books', {
