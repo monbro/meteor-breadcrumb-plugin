@@ -133,7 +133,13 @@ Please note, that you dont have to use a custom template with the name `breadcru
 <template name="breadcrumb">
     <ol class="breadcrumb">
         {{#each Breadcrumb}}
-            <li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>
+            <li class="{{cssClasses}}">
+            {{#if showLink}}
+                <a href="{{url}}">{{title}}</a>
+            {{else}}
+                {{title}}
+            {{/if}}
+            </li>
         {{/each}}
     </ol>
 </template>
