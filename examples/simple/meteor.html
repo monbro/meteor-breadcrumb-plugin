@@ -1,14 +1,14 @@
 <head>
-  <title>basic</title>
+<title>Simple IR-Breadcrumb Example</title>
 </head>
 
 <body>
 </body>
 
 <template name="dashboard">
-  {{> Nav}}
+  {{> navigation}}
 
-  <h1>Dashboard</h1>
+  <h2>Dashboard</h2>
 
   <p>
     Welcome {{name}}!
@@ -16,54 +16,45 @@
 </template>
 
 <template name="analytics">
-  {{> Nav}}
+  {{> navigation}}
 
-  <h1>Analytics Overview Title here</h1>
+  <h2>Analytics Overview Title here</h2>
 </template>
 
 <template name="analyticsBooks">
-  {{> Nav}}
+  {{> navigation}}
 
-  <h1>Analytics Books Title here</h1>
+  <h2>Analytics Books Title here</h2>
 </template>
 
 <template name="tags">
-  {{> Nav}}
+  {{> navigation}}
 
-  <h1>Taglist Page</h1>
+  <h2>Taglist Page</h2>
 </template>
 
 <template name="tagDetail">
-  {{> Nav}}
+  {{> navigation}}
 
-  <h1>Detail Tagpage about {{_name}}</h1>
+  <h2>Detail Tagpage about {{_name}}</h2>
 </template>
 
-<template name="Nav">
-    <p>
-      {{> breadcrumb}}
-    </p>
-  <ul>
-    <li>
-      <a href="/">Dashboard</a>
-    </li>
-    <li>
-      <a href="/analytics">Analytics</a>
-    </li>
-    <li>
-      <a href="/analytics/books">Analytics Books</a>
-    </li>
-    <li>
-      <a href="/tags">Taglist</a>
-    </li>
-    <li>
-      <a href="/tag/banana">Tag Banana</a>
-    </li>
-    <li>
-      <a href="/tag/apple">Tag Apple</a>
-    </li>
-        <li>
-      <a href="/tag/blueberry-orange">Tag Blueberry Orange</a>
-    </li>
+<template name="navigation">
+  <h1><a href="https://atmospherejs.com/monbro/iron-router-breadcrumb">Simple IR-Breadcrumb Example</a></h1>
+
+  <ul class="nav nav-tabs" data-toggle="tooltip" data-placement="right" title="Navigation">
+    <li class="{{ isActiveRoute 'dashboard' }}"><a href="{{pathFor route="dashboard"}}">Dashboard</a></li>
+    <li class="{{ isActiveRoute 'analytics' }}"><a href="{{pathFor route="analytics"}}">Analytics</a></li>
+    <li class="{{ isActiveRoute 'analytics.books' }}"><a href="{{pathFor route="analytics.books"}}">Analytics Books</a></li>
+    <li class="{{ isActiveRoute 'tags' }}"><a href="{{pathFor route="tags"}}">Taglist</a></li>
+    <li><a href="{{pathFor route="tag" _name="banana"}}">Tag Banana</a></li>
+    <li><a href="{{pathFor route="tag" _name="apple"}}">Tag Apple</a></li>
+    <li><a href="{{pathFor route="tag" _name="blueberry-orange"}}">Tag Blueberry Orange</a></li>
   </ul>
+
+  <br/>
+
+  <p>
+    {{> breadcrumb}}
+  </p>
 </template>

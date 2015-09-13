@@ -1,3 +1,6 @@
+/**
+ * example configuration for the beadcrumb package
+ */
 
 // Level 0
 Router.route('/', {
@@ -40,4 +43,15 @@ Router.route('/tag/:_name', {
   data: function () {
     return this.params;
   },
+});
+
+/**
+ * example page specific stuff below here, just for demonstration purpose
+ * you do not need this to make the breadcrumb package work
+ */
+
+// register a iron router template helper to check if the route is active
+UI.registerHelper('isActiveRoute', function(routeName) {
+    var currentRoute = Router.current();
+    return currentRoute && routeName === currentRoute.route.getName() ? 'active' : '';
 });
