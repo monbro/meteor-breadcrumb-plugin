@@ -31,9 +31,12 @@ Use `meteor add monbro:iron-router-breadcrumb` to add the package to your meteor
 In this example the Breadcrumb would look or the url `/dashboard/analytics/books` like: `Dashboard / Analytics / Category Books`
 
 ```
-// Configure a default title (optional)
+// Configure a default flags
+// * title (optional)
+// * show last item with link
 Router.configure({
-  defaultBreadcrumbTitle: 'My Site'
+  defaultBreadcrumbTitle: 'My Default Title',
+  defaultBreadcrumbLastLink: true
 });
 
 // Level 0
@@ -48,7 +51,8 @@ Router.route('/dashboard/analytics', {
   name: 'dashboard.analytics',
   template: 'dashboardAnalytics',
   parent: 'dashboard', // this should be the name variable of the parent route
-  title: 'Analytics'
+  title: 'Analytics',
+  showLink: false // will not link this item in the breadcrumb ever
 });
 
 // Level 2

@@ -2,6 +2,12 @@
  * example configuration for the beadcrumb package
  */
 
+ // default values for the breadcrumb package are stored in the router configuration object as well
+Router.configure({
+  defaultBreadcrumbTitle: 'My Default Title',
+  defaultBreadcrumbLastLink: false
+});
+
 // Level 0
 Router.route('/', {
   name: 'dashboard',
@@ -15,6 +21,7 @@ Router.route('/analytics', {
   name: 'analytics',
   parent: 'dashboard',
   template: 'analytics',
+  showLink: false,
   title: 'Analytics'
 });
 

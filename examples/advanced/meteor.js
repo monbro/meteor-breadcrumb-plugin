@@ -5,7 +5,8 @@
 // default values for the breadcrumb package are stored in the router configuration object as well
 Router.configure({
   layoutTemplate: 'layout',
-  defaultBreadcrumbTitle: 'My Default Title'
+  defaultBreadcrumbTitle: 'My Default Title',
+  defaultBreadcrumbLastLink: true
 });
 
 // Level 0
@@ -83,7 +84,7 @@ UI.registerHelper('isActiveRoute', function(routeName) {
     return currentRoute && routeName === currentRoute.route.getName() ? 'active' : '';
 });
 
-  // init tooltips for the example page
+// init tooltips for the example page
 if (Meteor.isClient) {
   Template.layout.rendered = function() {
     $('[data-toggle="tooltip"]').tooltip({'trigger':'manual'});

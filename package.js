@@ -1,7 +1,7 @@
 Package.describe({
   name: 'monbro:iron-router-breadcrumb',
   summary: 'This package will provide a easy way to add a breadcrumb to Iron.Router with enough flexibility.',
-  version: '1.0.8',
+  version: '1.0.10',
   git: 'https://github.com/monbro/meteor-breadcrumb-plugin/'
 });
 
