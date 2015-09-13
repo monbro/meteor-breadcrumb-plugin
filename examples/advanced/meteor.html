@@ -1,0 +1,174 @@
+<template name="layout">
+  <head>
+    <title>Basic IR-Breadcrumb Example</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1><a href="https://atmospherejs.com/monbro/iron-router-breadcrumb">Basic IR-Breadcrumb Example</a></h1>
+          <br/>
+
+          {{>yield}}
+
+        </div>
+      </div>
+    </div>
+  </body>
+</template>
+
+<template name="navigation">
+  <ul class="nav nav-tabs" data-toggle="tooltip" data-placement="right" title="Navigation">
+    <li class="{{ isActiveRoute 'dashboard' }}"><a href="{{pathFor route="dashboard"}}">Dashboard</a></li>
+    <li class="{{ isActiveRoute 'analytics' }}"><a href="{{pathFor route="analytics"}}">Analytics</a></li>
+    <li class="{{ isActiveRoute 'analytics.books' }}"><a href="{{pathFor route="analytics.books"}}">Analytics Books</a></li>
+    <li class="{{ isActiveRoute 'tags' }}"><a href="{{pathFor route="tags"}}">Taglist</a></li>
+    <li class="{{ isActiveRoute 'default.title' }}"><a href="{{pathFor route="default.title"}}">Default Title</a></li>
+    <li class="{{ isActiveRoute 'function.title' }}"><a href="{{pathFor route="function.title" _someparam="some_parameter_here"}}">Function Title</a></li>
+  </ul>
+
+  <br/>
+
+  <div data-toggle="tooltip" data-placement="right" title="Breadcrumb">
+    <div class="row">
+      <div class="col-md-12">
+        {{> breadcrumb}}
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="dashboard">
+  {{> navigation}}
+
+  <h2>Dashboard</h2>
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <p>
+      Welcome {{name}}!
+    </p>
+
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">route</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'/'</span><span class="ace_punctuation ace_operator">,</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'dashboard'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">template</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'dashboard'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">title</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Dashboard'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">data</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Gandalf'</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_paren ace_rparen">}</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+
+  </div>
+</template>
+
+<template name="analytics">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>Analytics Overview Title here</h2>
+
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">route</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'/analytics'</span><span class="ace_punctuation ace_operator">,</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'analytics'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">parent</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'dashboard'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">template</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'analytics'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">title</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Analytics'</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+
+  </div>
+</template>
+
+<template name="analyticsBooks">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>Analytics Books Title here</h2>
+
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">route</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'/analytics/books'</span><span class="ace_punctuation ace_operator">,</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'analytics.books'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">parent</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'analytics'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">template</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'analyticsBooks'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">title</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Category&nbsp;Books'</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+
+  </div>
+</template>
+
+<template name="tags">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>Taglist Page</h2>
+
+    <ul>
+      <li><a href="{{pathFor route="tag" _name="banana"}}">Tag Banana</a></li>
+      <li><a href="{{pathFor route="tag" _name="apple"}}">Tag Apple</a></li>
+      <li><a href="{{pathFor route="tag" _name="blueberry-orange"}}">Tag Blueberry Orange</a></li>
+    </ul>
+
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">route</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'/tags'</span><span class="ace_punctuation ace_operator">,</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'tags'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">parent</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'dashboard'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">template</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'tags'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">title</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Taglist'</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+
+  </div>
+</template>
+
+<template name="tagDetail">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>Detail Tagpage about {{_name}}</h2>
+    <a href="{{pathFor route="tags"}}">Back to tags</a>
+
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">route</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">'/tag/:_name'</span><span class="ace_punctuation ace_operator">,</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">name</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'tag'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">parent</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'tags'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">template</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'tagDetail'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">title</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'Detailpage&nbsp;for&nbsp;:_name'</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_entity ace_name ace_function">data</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_storage ace_type">function</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span>&nbsp;<span class="ace_paren ace_lparen">{</span></div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_keyword">return</span>&nbsp;<span class="ace_variable ace_language">this</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">params</span><span class="ace_punctuation ace_operator">;</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_paren ace_rparen">}</span><span class="ace_punctuation ace_operator">,</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+
+  </div>
+</template>
+
+<template name="defaulttitle">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>The Breadcrumb will now fall back to the default title</h2>
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px"><span class="ace_comment">//&nbsp;default&nbsp;values&nbsp;for&nbsp;the&nbsp;breadcrumb&nbsp;</span></div><div class="ace_line" style="height:22px"><span class="ace_comment">//&nbsp;package&nbsp;are&nbsp;stored&nbsp;in&nbsp;the&nbsp;router&nbsp;configuration&nbsp;object&nbsp;as&nbsp;well</span></div><div class="ace_line" style="height:22px"><span class="ace_identifier">Router</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">configure</span><span class="ace_paren ace_lparen">({</span></div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;<span class="ace_identifier">defaultBreadcrumbTitle</span><span class="ace_punctuation ace_operator">:</span>&nbsp;<span class="ace_string">'My&nbsp;Default&nbsp;Title'</span></div><div class="ace_line" style="height:22px"><span class="ace_paren ace_rparen">})</span><span class="ace_punctuation ace_operator">;</span></div></div>
+      </code>
+    </div>
+  </div>
+</template>
+
+<template name="functiontitle">
+  {{> navigation}}
+
+  <div data-toggle="tooltip" data-placement="right" title="Content Area">
+    <h2>The Breadcrumb will execute the function instead of showing the string</h2>
+
+    <br/>
+    <div class="well">
+      <h5>Code Snippet:</h5>
+      <code>
+        <div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:22px">Router.route('/function-title/:_someparam',&nbsp;{</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;'function.title',</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;parent:&nbsp;'dashboard',</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;template:&nbsp;'functiontitle',</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;{</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;firstname:&nbsp;'Gandalf',</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;lastname:&nbsp;'the&nbsp;Grey'</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;},</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;title:&nbsp;function()&nbsp;{</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;data&nbsp;=&nbsp;this.data();</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;console.log('Our&nbsp;data&nbsp;object&nbsp;for&nbsp;this&nbsp;route:');</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(data);</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;console.log('');</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;console.log('all&nbsp;given&nbsp;parameters&nbsp;for&nbsp;this&nbsp;route:');</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;console.log(this.params);</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;'Dynamic&nbsp;Title&nbsp;for&nbsp;'&nbsp;+&nbsp;data.firstname&nbsp;+</div><div class="ace_line" style="height:22px"><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ace_indent-guide">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;'&nbsp;for&nbsp;route&nbsp;details:&nbsp;'&nbsp;+&nbsp;this.params['_someparam'];</div><div class="ace_line" style="height:22px">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div class="ace_line" style="height:22px">});</div></div>
+      </code>
+    </div>
+  </div>
+</template>

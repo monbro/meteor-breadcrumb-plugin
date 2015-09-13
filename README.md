@@ -1,9 +1,13 @@
 meteor-breadcrumb-plugin
 ========================
 
-This package will provide a easy way to add a breadcrumb with enough flexibility to your project.
+This package will provide a easy way to add a breadcrumb with some flexibility to your project.
 
-# Try the [demo](http://meteor-breadcrumb-plugin-basic-example.meteor.com) which can be found on [github](https://github.com/monbro/meteor-breadcrumb-plugin/tree/master/examples/basic)
+# Demo and Examples
+
+## Simple [demo](http://meteor-breadcrumb-plugin-simple-example.meteor.com), on [github](https://github.com/monbro/meteor-breadcrumb-plugin/tree/master/examples/simple)
+
+## Advanced [demo](http://meteor-breadcrumb-plugin-advanced-example.meteor.com), on [github](https://github.com/monbro/meteor-breadcrumb-plugin/tree/master/examples/advanced)
 
 # Dependencies
 
@@ -13,7 +17,7 @@ This package will provide a easy way to add a breadcrumb with enough flexibility
 # Compatibility
 
 * works out of the box with bootstrap3
-* use the pre existing template or use your own
+* use the pre existing breadcrumb template or use your own easily
 
 # Installation
 
@@ -23,11 +27,16 @@ Use `meteor add monbro:iron-router-breadcrumb` to add the package to your meteor
 
 * You need to add two parameters to your iron routes which are `parent` and `title`
 
-## 1. Example Iron Route with multiple levels
+## 1. Example iron route with multiple levels
 
 ### In this example the Breadcrumb would look or the url `/dashboard/analytics/books` like: `Dashboard / Analytics / Category Books`
 
 ```
+// Configure a default title (optional)
+Router.configure({
+  defaultBreadcrumbTitle: 'My Site'
+});
+
 // Level 0
 Router.route('/', {
   name: 'dashboard',
@@ -52,7 +61,7 @@ Router.route('/dashboard/analytics/books', {
 });
 ```
 
-## 2. Example Dynamic Iron Route
+## 2. Example dynamic iron route
 
 ### In this example the Breadcrumb would look for the url `/post/hello-world` like: `Home / Blogpost Hello-World`
 
@@ -71,7 +80,49 @@ Router.route('/post/:_name', {
 });
 ```
 
-## Example custom template for navigation
+## 3. Example using a function for the title
+
+### In this example the Breadcrumb would look for the url `/post/hello-world` like: `Home / Blogpost Hello-World`
+
+```
+Router.route('/', {
+  name: 'home',
+  template: 'home',
+  title: 'Home'
+});
+
+Router.route('/post/:_name', {
+  name: 'post',
+  parent: 'home', // this should be the name variable of the parent route
+  template: 'singleBlogPost',
+  data: {
+    firstname: 'Gandalf',
+    lastname: 'the Grey'
+  },
+  title: function() {
+    // using a function to generate the title dynamically
+    var data = this.data();
+    console.log('Our data object for this route:');
+    console.log(data);
+    console.log('');
+    console.log('all given parameters for this route:');
+    console.log(this.params);
+    return 'Dynamic Title for '+data.firstname+' for post: '+this.params['_name'];
+  }
+});
+
+// a more simple example
+Router.route('/function-title', {
+  name: 'function.title',
+  parent: 'home',
+  template: 'functiontitle',
+  title: function() {
+    return 'By-Function-Retuned';
+  }
+});
+```
+
+## 4. Example using a custom template for the breadcrumb
 
 ### Please note, that you dont have to use a custom template with the name `breadcrumb`, you can use the existing one out of the box by simply using `{{> breadcrumb}}` to include the preexisting template (which looks exact like the following example) anywhere in your own templates.
 
@@ -85,7 +136,7 @@ Router.route('/post/:_name', {
 </template>
 ```
 
-## Example access of the breadcrumb in Javascript
+## 5. Example on how to access the breadcrumb object on the client
 
 ```
 if (Meteor.is_client) {
