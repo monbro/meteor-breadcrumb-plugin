@@ -25,6 +25,7 @@ Use `meteor add monbro:iron-router-breadcrumb` to add the package to your meteor
 # Usage
 
 * You need to add two parameters to your iron routes which are `parent` and `title`
+* Set `noCaps = true` to disable title capitalization
 
 ### 1. Example iron route with multiple levels
 
