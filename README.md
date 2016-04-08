@@ -17,6 +17,7 @@ This [meteor package](http://atmospherejs.com/monbro/iron-router-breadcrumb) wil
 
 * works out of the box with bootstrap3
 * use the pre existing breadcrumb template or use your own easily
+* use microdatas for better search engine display ([Google Documentation](https://developers.google.com/structured-data/breadcrumbs))
 
 # Installation
 
@@ -132,14 +133,16 @@ Please note, that you dont have to use a custom template with the name `breadcru
 
 ```
 <template name="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
         {{#each Breadcrumb}}
-            <li class="{{cssClasses}}">
-            {{#if showLink}}
-                <a href="{{url}}">{{title}}</a>
-            {{else}}
-                {{title}}
-            {{/if}}
+            <li class="{{cssClasses}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                {{#if showLink}}
+                    <a href="{{url}}" itemprop="item">
+                        <span itemprop="name">{{title}}</span>
+                    </a>
+                {{else}}
+                    <span itemprop="name">{{title}}</span>
+                {{/if}}
             </li>
         {{/each}}
     </ol>
