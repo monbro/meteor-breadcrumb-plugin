@@ -1,12 +1,14 @@
 <template name="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
         {{#each Breadcrumb}}
-            <li class="{{cssClasses}}">
-            {{#if showLink}}
-                <a href="{{url}}">{{title}}</a>
-            {{else}}
-                {{title}}
-            {{/if}}
+            <li class="{{cssClasses}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                {{#if showLink}}
+                    <a href="{{url}}" itemprop="item">
+                        <span itemprop="name">{{title}}</span>
+                    </a>
+                {{else}}
+                    <span itemprop="name">{{title}}</span>
+                {{/if}}
             </li>
         {{/each}}
     </ol>
