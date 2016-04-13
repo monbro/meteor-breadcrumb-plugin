@@ -1,13 +1,18 @@
 <template name="breadcrumb">
-    <ol class="breadcrumb">
-        {{#each Breadcrumb}}
-            <li class="{{cssClasses}}">
-            {{#if showLink}}
-                <a href="{{url}}">{{title}}</a>
-            {{else}}
-                {{title}}
-            {{/if}}
+    <nav role="menubar" aria-label="breadcrumb">
+        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+            {{#each Breadcrumb}}
+            <li class="{{ cssClasses }}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" role="menuitem">
+                {{#if showLink}}
+                    <a href="{{ url }}" itemprop="item">
+                        <span itemprop="name">{{ itemName }}</span>
+                    </a>
+                {{else}}
+                    {{ itemName }}
+                {{/if}}
+                <meta itemprop="position" content="{{ @index }}" />
             </li>
-        {{/each}}
-    </ol>
+            {{/each}}
+        </ol>
+    </nav>
 </template>
